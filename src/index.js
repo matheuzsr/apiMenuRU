@@ -8,6 +8,9 @@ const Cardapio = require('./models/Cardapio');
 const routes = require('./routes');
 const server = express();
 
+//dotenv
+require('dotenv').config()
+
 mongoose.connect('mongodb+srv://cardapio:FlYvIdUpPxm2fPaP@cluster0-jdqqg.mongodb.net/MenuJoin?retryWrites=true&w=majority', {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -15,11 +18,11 @@ mongoose.connect('mongodb+srv://cardapio:FlYvIdUpPxm2fPaP@cluster0-jdqqg.mongodb
 server.use(cors());
 server.use(express.json());
 server.use(routes);
-server.listen(process.env.PORT || 3333); //porta backend
+server.listen(3333); //porta backend
 
 async function getSiteVarius() {
   try {
-    const apiResponse = await axios.get('http://www.ru.alegre.ufes.br/cardapio/rss/2019-08-15');
+    const apiResponse = await axios.get('http://www.ru.alegre.ufes.br/cardapio/rss/2020-02-07');
     const json = JSON.parse(convert.xml2json(apiResponse.data, { compact: true, spaces: 4 }));
     const itens = json.rss.channel.item.map(({ description, link, pubDate, title }) => {
       return {
@@ -83,9 +86,6 @@ async function getSiteVarius() {
   }
 }
 
-
 setInterval(getSiteVarius, 10000);
-
-  //setInterval(getSiteUnitario, 10000);
 
 
