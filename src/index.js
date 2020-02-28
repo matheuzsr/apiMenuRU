@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const axios = require("axios");
 const convert = require("xml-js");
+const { format } = require("date-fns");
 
 const Cardapio = require("./models/Cardapio");
 const routes = require("./routes");
@@ -30,7 +31,11 @@ server.disable("x-powered-by");
 async function getSiteVarius() {
   try {
     const apiResponse = await axios.get(
-      "http://www.ru.alegre.ufes.br/cardapio/rss/2020-02-07"
+      // `http://www.ru.alegre.ufes.br/cardapio/rss/${format(
+      //   new Date(),
+      //   "yyyy-MM-dd"
+      // )}`
+      `http://www.ru.alegre.ufes.br/cardapio/rss/2020-02-07`
     );
     const json = JSON.parse(
       convert.xml2json(apiResponse.data, { compact: true, spaces: 4 })

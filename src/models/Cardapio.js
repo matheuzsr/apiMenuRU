@@ -1,15 +1,16 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require("mongoose");
 
-const CardapioSchema = new Schema({
-
+const CardapioSchema = new Schema(
+  {
     idCardapio: String,
     title: String,
     date: String,
     link: String,
-    menuJoin: String,
-
-}, {
+    menuJoin: String
+  },
+  {
     timestamps: true
-})
+  }
+);
 
-module.exports = model('Cardapio', CardapioSchema)
+module.exports = model("Cardapio", CardapioSchema);
