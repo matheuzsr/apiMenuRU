@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const CardapioSchema = new Schema(
+const MenuSchema = new Schema(
   {
     idCardapio: String,
     title: String,
@@ -13,4 +13,4 @@ const CardapioSchema = new Schema(
   }
 );
 
-module.exports = model("Cardapio", CardapioSchema);
+module.exports = model("Menu", MenuSchema);

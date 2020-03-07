@@ -1,27 +1,27 @@
-const Cardapio = require("../models/Cardapio");
+const Menu = require("../models/Menu");
 
 module.exports = {
   async index(request, response) {
-    const menu = await Cardapio.find();
+    const menu = await Menu.find();
     return response.json(menu);
   },
 
   async show(request, response) {
-    const { id } = request.params;
-    const menu = await Cardapio.findById({ _id: id });
+    const { idCardapio } = request.params;
+    const menu = await Menu.findOne ({ idCardapio: idCardapio });
 
     return response.json(menu);
   },
 
   async store(req, resp) {
     const { idCardapio, title, date, link, menuJoin } = req.body;
-    const cardapioExists = await Cardapio.findOne({ idCardapio: idCardapio });
+    const cardapioExists = await Menu.findOne({ idCardapio: idCardapio });
 
     if (cardapioExists) {
       console.log(`Cardapio Existente ${idCardapio}`);
       return resp.json(cardapioExists);
     }
-    const cardapio = await Cardapio.create({
+    const cardapio = await Menu.create({
       idCardapio,
       title,
       date,

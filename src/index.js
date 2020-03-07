@@ -5,7 +5,7 @@ const axios = require("axios");
 const convert = require("xml-js");
 const { format } = require("date-fns");
 
-const Cardapio = require("./models/Cardapio");
+const Menu = require("./models/Menu");
 const routes = require("./routes");
 const server = express();
 
@@ -15,7 +15,7 @@ require("dotenv").config();
 const port = process.env.PORT || 4000;
 
 mongoose.connect(
-  "mongodb+srv://cardapio:FlYvIdUpPxm2fPaP@cluster0-jdqqg.mongodb.net/MenuJoin?retryWrites=true&w=majority",
+  "mongodb+srv://cardapio:FlYvIdUpPxm2fPaP@cluster0-jdqqg.mongodb.net/MenuRU?retryWrites=true&w=majority",
   {
     useUnifiedTopology: true,
     useNewUrlParser: true
@@ -31,11 +31,11 @@ server.disable("x-powered-by");
 async function getSiteVarius() {
   try {
     const apiResponse = await axios.get(
-      // `http://www.ru.alegre.ufes.br/cardapio/rss/${format(
-      //   new Date(),
-      //   "yyyy-MM-dd"
-      // )}`
-      `http://www.ru.alegre.ufes.br/cardapio/rss/2020-02-07`
+       `http://www.ru.alegre.ufes.br/cardapio/rss/${format(
+        new Date(),
+        "yyyy-MM-dd"
+       )}`
+      //`http://www.ru.alegre.ufes.br/cardapio/rss/all`
     );
     const json = JSON.parse(
       convert.xml2json(apiResponse.data, { compact: true, spaces: 4 })
@@ -53,16 +53,18 @@ async function getSiteVarius() {
 
     itens.map(async item => {
       const { title, date, link, description } = item;
-      let idCardapio = `${date.split("/").join("")}-${title
+      let idCardapio = `${date.split("/").join("")}-${(title
         .split(" ")
         .join("")
-        .toLowerCase()}`;
+        .toLowerCase())
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      }`;
 
-      let cardapioExists = await Cardapio.findOne({ idCardapio });
+      let cardapioExists = await Menu.findOne({ idCardapio });
       if (cardapioExists) {
         console.log(`Cardapio Existente ${idCardapio}`);
       } else {
-        const cardapio = await Cardapio.create({
+        const cardapio = await Menu.create({
           idCardapio,
           title,
           date,
@@ -75,7 +77,11 @@ async function getSiteVarius() {
   } catch (e) {
     try {
       const apiResponse = await axios.get(
-        "http://www.ru.alegre.ufes.br/cardapio/rss/2019-08-15"
+         `http://www.ru.alegre.ufes.br/cardapio/rss/${format(
+           new Date(),
+           "yyyy-MM-dd"
+         )}`
+        //`http://www.ru.alegre.ufes.br/cardapio/rss/2020-02-07`
       );
       const json = JSON.parse(
         convert.xml2json(apiResponse.data, { compact: true, spaces: 4 })
@@ -89,16 +95,18 @@ async function getSiteVarius() {
       };
 
       const { title, date, link, description } = item;
-      let idCardapio = `${date.split("/").join("")}-${title
+      let idCardapio = `${date.split("/").join("")}-${(title
         .split(" ")
         .join("")
-        .toLowerCase()}`;
+        .toLowerCase())
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      }`;
 
-      let cardapioExists = await Cardapio.findOne({ idCardapio });
+      let cardapioExists = await Menu.findOne({ idCardapio });
       if (cardapioExists) {
         console.log(`Cardapio Existente ${idCardapio}`);
       } else {
-        const cardapio = await Cardapio.create({
+        const cardapio = await Menu.create({
           idCardapio,
           title,
           date,
