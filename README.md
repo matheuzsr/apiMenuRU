@@ -12,11 +12,11 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
 
 ## Guia de uso
 
-**post:** 
+**POST:** 
 
   */menu*
+  *input:*
   ```
-  input:
   {
     "idCardapio": "20200129-almoco-alegre",
     "title": "Almoço (Alegre)",
@@ -24,10 +24,10 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
     "menuJoin": "Entrada\nRepolho\nCenoura Cozida\nPrato Proteico\nFrango ao Molho Curry\nOpção\nOvos Mexidos \nAcompanhamento\nArroz e Feijão\nGuarnição\nGravatinha ao Molho de Tomate\nSobremesa\nBanana Prata"
   }
   ```
-**post:** 
+**GET:** 
 
   */menu*
-  result:
+  *result:*
   ```
   [
     {
@@ -58,8 +58,8 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
   ]
   ```
 
-*/menu:idCardapio* -> ex:"idCardapio": "07022020-almoco(alegre)"
-  result:
+  */menu:idCardapio* -> ex:"idCardapio": "07022020-almoco(alegre)"
+  *result:*
   ```
   {
     "_id": "5e5b17aa5e13853581bf712c",
@@ -73,9 +73,8 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
     "__v": 0
   }
   ```
-```
 
-## Autores
+## Authors
 
 * **Matheus Rocha** - [Linkedin](https://www.linkedin.com/in/matheuzsr/)
 
