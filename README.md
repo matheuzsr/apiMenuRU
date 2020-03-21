@@ -12,6 +12,7 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
 
 ## Guia de uso
 
+
 **POST:** 
 
   */menu*
@@ -24,6 +25,8 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
     "menuJoin": "Entrada\nRepolho\nCenoura Cozida\nPrato Proteico\nFrango ao Molho Curry\nOpção\nOvos Mexidos \nAcompanhamento\nArroz e Feijão\nGuarnição\nGravatinha ao Molho de Tomate\nSobremesa\nBanana Prata"
   }
   ```
+
+
 **GET:** 
 
   */menu*
@@ -59,6 +62,7 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
   ```
 
   */menu:idCardapio* -> ex:"idCardapio": "07022020-almoco(alegre)"
+  
   *result:*
   ```
   {
