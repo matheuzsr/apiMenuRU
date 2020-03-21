@@ -1,6 +1,6 @@
 # Api RESTFULL - CardápioRU Ufes (Alegre) 
 
-Baseado na necessidade que identifiquei, de que havesse uma maneira de fácil/rápido acesso aos dados contidos no website da universidade referente ao cardápio diário do restaurante, resolvi reunir essas informações a fim de posteriormente criar um aplicativo que consumirá esta api, e exibirá os dados de uma forma mais harmônica e simples, buscando proporcionar um maior bem estar para a comunidade academica
+Baseado na necessidade que identifiquei, de que houvesse uma maneira de fácil/rápido acesso aos dados contidos no website da universidade referente ao cardápio diário do restaurante, resolvi reunir essas informações a fim de posteriormente criar um aplicativo que consumirá esta api, e exibirá os dados de uma forma mais harmônica e simples, buscando proporcionar um maior bem estar para a comunidade academica.
 
 ## Por onde iniciar
 
@@ -15,8 +15,8 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
 
 **POST:** 
 
-  */menu*
-  *input:*
+  **/menu**
+  **input:**
   ```
   {
     "idCardapio": "20200129-almoco-alegre",
@@ -29,8 +29,9 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
 
 **GET:** 
 
-  */menu*
-  *result:*
+  **/menu**
+
+  **result:**
   ```
   [
     {
@@ -60,10 +61,10 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
     .
   ]
   ```
-
-  */menu:idCardapio* -> ex:"idCardapio": "07022020-almoco(alegre)"
   
-  *result:*
+  **/menu/:idCardapio** ->  *ex:"idCardapio": "07022020-almoco(alegre)"*
+
+  **result:**
   ```
   {
     "_id": "5e5b17aa5e13853581bf712c",
