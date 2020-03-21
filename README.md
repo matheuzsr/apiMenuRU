@@ -16,6 +16,8 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
 **POST:** 
 
   **/menu**
+
+
   **input:**
   ```
   {
@@ -30,6 +32,7 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
 **GET:** 
 
   **/menu**
+
 
   **result:**
   ```
@@ -61,8 +64,9 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
     .
   ]
   ```
-  
+
   **/menu/:idCardapio** ->  *ex:"idCardapio": "07022020-almoco(alegre)"*
+
 
   **result:**
   ```
