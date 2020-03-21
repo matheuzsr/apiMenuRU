@@ -121,4 +121,4 @@ async function getSiteVarius() {
   }
 }
 
-setInterval(getSiteVarius, 10000);
+setInterval(getSiteVarius, 1800000);
