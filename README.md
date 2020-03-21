@@ -13,10 +13,7 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
 ## Guia de uso
 
 
-**POST:** 
-
-
-  **/menu**
+**POST: /menu**
 
   **input:**
   ```
@@ -29,10 +26,7 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
   ```
 
 
-**GET:** 
-
-
-  **/menu**
+**GET: /menu**
 
   **result:**
   ```
@@ -66,7 +60,7 @@ Nodejs, e conhecimento em métodos de api no padrão Rest
   ```
 
 
-  **/menu/:idCardapio** ->  *ex:"idCardapio": "07022020-almoco(alegre)"*
+  **GET: /menu/:idCardapio** ->  *ex:"idCardapio": "07022020-almoco(alegre)"*
 
   **result:**
   ```
