@@ -8,13 +8,13 @@ module.exports = {
 
   async show(request, response) {
     const { idCardapio } = request.params;
-    const menu = await Menu.findOne ({ idCardapio: idCardapio });
+    const menu = await Menu.findOne({ idCardapio: idCardapio });
 
     return response.json(menu);
   },
 
   async store(req, resp) {
-    const { idCardapio, title, date, link, menuJoin } = req.body;
+    const { idCardapio, title, date, link, menuText } = req.body;
     const cardapioExists = await Menu.findOne({ idCardapio: idCardapio });
 
     if (cardapioExists) {
@@ -26,8 +26,8 @@ module.exports = {
       title,
       date,
       link,
-      menuJoin
+      menuText,
     });
     return resp.json(cardapio);
-  }
+  },
 };

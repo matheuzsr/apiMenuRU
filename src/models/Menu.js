@@ -6,7 +6,7 @@ const MenuSchema = new Schema(
     title: String,
     date: String,
     link: String,
-    menuJoin: String
+    menu: Object,
   },
   {
     timestamps: true
